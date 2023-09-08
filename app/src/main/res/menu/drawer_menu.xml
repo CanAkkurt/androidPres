@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/projectListFragment"
+        android:icon="@drawable/projects"
+        android:title="@string/projects" />
+    <item
+        android:id="@+id/virtualMachineListFragment"
+        android:icon="@drawable/virtualmachines"
+        android:title="@string/virtual_machines" />
+    <item
+        android:id="@+id/listCustomersFragment"
+        android:icon="@drawable/customers"
+        android:title="@string/customers" />
+
+    <item
+        android:id="@+id/listMembersFragment"
+        android:icon="@drawable/members"
+        android:title="@string/members" />
+    <item
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/logOut"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="@string/log_out" />
+</menu>

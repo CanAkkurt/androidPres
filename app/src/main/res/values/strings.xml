@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">test</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="second_fragment_label">Home</string>
+
+    <string name="welkom_terug">Welkom terug! Leuk dat je er weer bent.</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Wachtwoord vergeten?</string>
+    <string name="virtual_machines">Virtual machines</string>
+    <string name="customers">Customers</string>
+    <string name="members">Members</string>
+    <string name="projects">Projects</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="einddatum">Einddatum:</string>
+    <string name="startdatum">Startdatum:</string>
+    <string name="geheugen_gb">Geheugen (GB)</string>
+    <string name="opslag_gb">Opslag (GB)</string>
+    <string name="aantal_vcpus">Aantal vCPUs</string>
+    <string name="status">Status:</string>
+    <string name="naam_vm">Naam VM:</string>
+    <string name="about">About</string>
+    <string name="Departement">Departement</string>
+    <string name="Telnr">Telefoonnummer</string>
+    <string name="Rol">Rol</string>
+    <string name="BackupContact">Backup contact</string>
+
+    <string name="com_auth0_client_id">GWoLdOPzWkZmqJ6ioVSlIyoTTk0QWTeJ</string>
+    <string name="com_auth0_domain">dev-0oj1g2wm3cvd863w.us.auth0.com</string>
+    <string name="com_auth0_scheme">Vic</string>
+    <string name="home">Home</string>
+    <string name="log_out">Log out</string>
+</resources>

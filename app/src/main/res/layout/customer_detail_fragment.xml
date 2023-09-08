@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="customerViewModel"
+            type="com.example.test.screens.customers.CustomerViewModel" />
+
+        <variable
+            name="virtualMachineListViewModel"
+            type="com.example.test.screens.virtual_machines.VirtualMachineListViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="672dp"
+        android:layout_marginTop="56dp"
+        tools:context=".customersFragment">
+
+        <TextView
+            android:id="@+id/textview_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/asap"
+            android:text="@{customerViewModel.customer.name}"
+            android:textSize="34sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="naam" />
+
+        <TextView
+            android:id="@+id/textview_backupcontact_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/asap"
+            android:text="@string/BackupContact"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_email" />
+
+        <TextView
+            android:id="@+id/textview_phonenr_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/asap"
+            android:text="@string/Telnr"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_name" />
+
+        <TextView
+            android:id="@+id/textview_phonenr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/asap"
+            android:text="@{customerViewModel.customer.phoneNr.toString()}"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textview_phonenr_label"
+            app:layout_constraintTop_toBottomOf="@+id/textview_phonenr_label"
+            tools:text="phonenr" />
+
+        <TextView
+            android:id="@+id/tetview_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/asap"
+            android:text="@string/email"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_name" />
+
+        <TextView
+            android:id="@+id/textview_department_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/asap"
+            android:text="@string/Departement"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textview_phonenr"
+            app:layout_constraintTop_toBottomOf="@+id/textview_phonenr" />
+
+        <TextView
+            android:id="@+id/textview_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/asap"
+            android:text="@{customerViewModel.customer.email}"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tetview_email_label"
+            tools:text="email" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="@+id/textview_phonenr_label"
+            app:layout_constraintStart_toStartOf="@+id/textview_email"
+            app:layout_constraintTop_toBottomOf="@+id/textview_email" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/virtual_machine_list"
+            android:layout_width="387dp"
+            android:layout_height="636dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_backupcontact_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

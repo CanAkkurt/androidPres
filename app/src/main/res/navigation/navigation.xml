@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SecondFragment">
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.test.HomeFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_listUsersFragment"
+            app:destination="@id/listMembersFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_virtualMachineListFragment"
+            app:destination="@id/virtualMachineListFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_projectListFragment"
+            app:destination="@id/projectListFragment" />
+        <action
+            android:id="@+id/logOut"
+            app:destination="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/listCustomersFragment"
+        android:name="com.example.test.screens.customers.ListCustomersFragment"
+        android:label="Beheer gebruikers">
+        <action
+            android:id="@+id/action_listCustomerFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listMembersFragment"
+        android:name="com.example.test.screens.members.MemberListFragment"
+        android:label="Beheer members">
+        <action
+            android:id="@+id/action_listMembersFragment_to_memberFragment"
+            app:destination="@id/memberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/virtualMachineListFragment"
+        android:name="com.example.test.screens.virtual_machines.VirtualMachineListFragment"
+        android:label="Beheer VMs">
+        <action
+            android:id="@+id/action_virtualMachineListFragment_to_virtualMachineDetailFragment"
+            app:destination="@id/virtualMachineDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/virtualMachineDetailFragment"
+        android:name="com.example.test.screens.virtual_machines.VirtualMachineDetailFragment"
+        android:label="Detail VM">
+        <argument
+            android:name="vmId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.example.test.screens.customers.CustomerFragment"
+        android:label="Detail klant">
+        <argument
+            android:name="customerId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_customerFragment_to_virtualMachineDetailFragment"
+            app:destination="@id/virtualMachineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/projectListFragment"
+        android:name="com.example.test.screens.project.ProjectListFragment"
+        android:label="Beheer projecten">
+        <action
+            android:id="@+id/action_projectListFragment_to_virtualMachineListFragment"
+            app:destination="@id/virtualMachineListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.test.screens.about.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="com.example.test.screens.members.MemberFragment"
+        android:label="Detail member">
+        <argument
+            android:name="memberId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_memberFragment_to_virtualMachineDetailFragment"
+            app:destination="@id/virtualMachineDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="virtualMachineViewModel"
+            type="com.example.test.screens.virtual_machines.VirtualMachineViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Your fragment's content goes here -->
+        <!-- Add your UI components here -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".HomeFragment">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="411dp"
+                    android:layout_marginTop="700dp"
+                    android:text="Button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@{virtualMachineViewModel.virtualMachine.name}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textview_name_label"
+                    app:layout_constraintStart_toEndOf="@+id/textview_name_label"
+                    tools:text="VM name" />
+
+                <TextView
+                    android:id="@+id/textview_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@{virtualMachineViewModel.virtualMachine.state.printableName}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textview_state_label"
+                    app:layout_constraintStart_toEndOf="@+id/textview_state_label"
+                    tools:text="state" />
+
+                <TextView
+                    android:id="@+id/textview_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/naam_vm"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_state_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/status"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_name_label" />
+
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_state_label">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textview_vcpu_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"
+                            android:text="@string/aantal_vcpus"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="189dp"
+                            tools:layout_editor_absoluteY="420dp"
+                            tools:text="Aantal VCPUs" />
+
+                        <TextView
+                            android:id="@+id/textview_storage_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"
+                            android:text="@string/opslag_gb"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="248dp"
+                            tools:layout_editor_absoluteY="425dp"
+                            tools:text="Opslag (GB)" />
+
+                        <TextView
+                            android:id="@+id/textview_memory_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/geheugen_gb"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="217dp"
+                            tools:layout_editor_absoluteY="450dp"
+                            tools:text="Geheugen (GB)" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textview_vcpu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"
+                            android:text="@{Integer.toString(virtualMachineViewModel.virtualMachine.vcpUAmount)}"
+                            tools:layout_editor_absoluteX="189dp"
+                            tools:layout_editor_absoluteY="420dp"
+                            tools:text="vcpu" />
+
+                        <TextView
+                            android:id="@+id/textview_storage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"
+                            android:text="@{Integer.toString(virtualMachineViewModel.virtualMachine.storageAmount)}"
+                            tools:layout_editor_absoluteX="248dp"
+                            tools:layout_editor_absoluteY="425dp"
+                            tools:text="storage" />
+
+                        <TextView
+                            android:id="@+id/textview_memory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@{Integer.toString(virtualMachineViewModel.virtualMachine.memoryAmount)}"
+                            tools:layout_editor_absoluteX="217dp"
+                            tools:layout_editor_absoluteY="450dp"
+                            tools:text="memory" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/textview_begindate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/startdatum"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                    tools:text="Startdatum:" />
+
+                <TextView
+                    android:id="@+id/textView_endDate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/einddatum"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_begindate_label" />
+
+                <TextView
+                    android:id="@+id/textview_begindate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{virtualMachineViewModel.virtualMachine.startDate.toString()}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textview_begindate_label"
+                    app:layout_constraintStart_toEndOf="@+id/textview_begindate_label"
+                    tools:text="start date" />
+
+                <TextView
+                    android:id="@+id/textview_enddate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{virtualMachineViewModel.virtualMachine.endDate.toString()}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_endDate_label"
+                    app:layout_constraintStart_toEndOf="@+id/textView_endDate_label"
+                    tools:text="end date" />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chartMemory"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_endDate_label">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chartCpu"
+                    android:layout_width="200dp"
+                    android:layout_height="171dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chartMemory">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chartStorage"
+                    android:layout_width="200dp"
+                    android:layout_height="171dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chartMemory">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</layout>
